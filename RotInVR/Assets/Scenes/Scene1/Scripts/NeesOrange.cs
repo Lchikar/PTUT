@@ -23,14 +23,7 @@ public class NeesOrange : MonoBehaviour
     {
         cubes = new GameObject();
         cubes.name = "Cubes";
-
-        Debug.Log("nb cubes src : " + cubesSrc.Length);
-        for(int i = 0; i < cubesSrc.Length; i++)
-        {
-            Debug.Log(cubesSrc[i].name);
-        }
-
-        Vector3 initPos = new Vector3(-width / 2.0f, 0, -height/2.0f);
+        Vector3 initPos = new Vector3(0,0,0);
         Vector3 currPos = initPos;
         GameObject currCube = new GameObject();
         int countCubes = -1;
@@ -43,16 +36,12 @@ public class NeesOrange : MonoBehaviour
                 {
                     
                     currPos = new Vector3(initPos.x + i , initPos.y + j , initPos.z + k );
-                    currCube = Instantiate(
-                        cubesSrc[Random.Range(0,cubesSrc.Length-1)], 
-                        currPos, 
-                        Quaternion.identity) as GameObject;
+                    currCube = Instantiate(cubesSrc[Random.Range(0,cubesSrc.Length-1)],currPos,Quaternion.identity) as GameObject;
                     currCube.name = (++countCubes).ToString();
                     currCube.transform.parent = cubes.transform;
                 }
             }
         }
-        Debug.Log(countCubes + " cubes");
     }
 
     

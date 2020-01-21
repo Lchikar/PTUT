@@ -81,18 +81,13 @@ public class Maze : MonoBehaviour
             int x = i / width;
             int z = i % width;
 
-            Debug.Log("\tMURS DE " + i);
             cells[i].walls.Add( x * (width + 1) + z );
-            Debug.Log("LEFT ==> " + x + " * (" + (width + 1) + ") + " + z + " => " + cells[i].walls[0]);
 
             cells[i].walls.Add( x * (width + 1) + z + 1 );
-            Debug.Log("RIGHT ==> " + x + " * (" + (width + 1) + ") + " + z + " + 1 => " + cells[i].walls[1]);
 
             cells[i].walls.Add( x * (width ) + length * (width + 1) + z );
-            Debug.Log("DOWN ==> " + x + " * (" + (width + 1) + ") + " + length + " * (" + (width + 1) + ") + " + z + " => " + cells[i].walls[2]);
 
             cells[i].walls.Add( x * (width ) + length * (width + 1) + z + width);
-            Debug.Log("UP ==> " + x + " * (" + (width + 1) + ") + " + length + " * (" + (width + 1) + ") + " + z + " + " + width + " => " + cells[i].walls[3]);
 
 
             if ((i%width) != 0)
@@ -157,13 +152,6 @@ public class Maze : MonoBehaviour
         int start = Random.Range(0, width * length);
 
         DeepExploration(start);
-
-        /*for (int i = 0; i < cells.Length; i++)
-        {
-            Debug.Log("\t" + i + " connected to ");
-            for (int j = 0; j < cells[i].links.Count; j++)
-                Debug.Log(cells[i].links[j]);
-        }*/
     }
     
     private void BreakWalls()
@@ -172,32 +160,24 @@ public class Maze : MonoBehaviour
         {
             for (int j = 0; j < cells[i].links.Count; j++)
             {
-                
-                Debug.Log("\tBreaking between " + i + " and " + cells[i].links[j] + " ? ");
-
                 if ((i - cells[i].links[j]) == 1)
                 {
-                    Debug.Log("DESTROYING LEFT (" + i + "-" + cells[i].links[j] +") " + walls.transform.Find(cells[i].walls[0].ToString()).gameObject.name);
                     Destroy(walls.transform.Find(cells[i].walls[0].ToString()).gameObject);
                 }
 
                 if ((i - cells[i].links[j]) == -1)
                 {
-                    Debug.Log("DESTROYING RIGHT (" + i + "-" + cells[i].links[j] + ") " + walls.transform.Find(cells[i].walls[1].ToString()).gameObject.name);
                     Destroy(walls.transform.Find(cells[i].walls[1].ToString()).gameObject);
                 }
 
                 if ((i - cells[i].links[j]) == -width)
                 {
-                    Debug.Log("DESTROYING UP (" + i + "-" + cells[i].links[j] + ") " + walls.transform.Find(cells[i].walls[3].ToString()).gameObject.name);
                     Destroy(walls.transform.Find(cells[i].walls[3].ToString()).gameObject);
                 }
 
                 if ((i - cells[i].links[j]) == width)
                 {
-                    Debug.Log("DESTROYING DOWN (" + i + "-" + cells[i].links[j] + ") " + walls.transform.Find(cells[i].walls[2].ToString()).gameObject.name);
                     Destroy(walls.transform.Find(cells[i].walls[2].ToString()).gameObject);
-
                 }
             }
         }
