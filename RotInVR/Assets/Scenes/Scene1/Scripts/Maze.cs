@@ -29,6 +29,7 @@ public class Maze : MonoBehaviour
         CreateCells();
         GeneratePath();
         BreakWalls();
+        ColorInnerWalls();
         walls.transform.localScale += new Vector3(10, 10, 10);
     }
 
@@ -182,6 +183,20 @@ public class Maze : MonoBehaviour
             }
         }
     }
+
+    private void ColorInnerWalls()
+    {
+        for (int i = 0; i < walls.transform.childCount; i++)
+        {
+            for (int k = 0; k < length; k++)
+                if (i == k * (width + 1) || i == k * (width + 1) + width)
+                    walls.transform.Find(i.ToString()).gameObject.GetComponent<Renderer>().material.color = Color.red;
+            for (int k = 0; k < width; k++)
+                if (i == length * (width + 1) + k || i == length * (width + 1) + k + length * width)
+                    walls.transform.Find(i.ToString()).gameObject.GetComponent<Renderer>().material.color = Color.red;
+        }
+    }
+
 }
 
 
