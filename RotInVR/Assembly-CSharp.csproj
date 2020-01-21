@@ -55,8 +55,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scenes\Scene1\Scripts\FollowPlayer.cs" />
      <Compile Include="Assets\Scenes\Scene1\Scripts\Maze.cs" />
      <Compile Include="Assets\Scenes\Scene1\Scripts\NeesOrange.cs" />
+     <Compile Include="Assets\Scenes\Scene1\Scripts\PlayerMovements.cs" />
      <Compile Include="Assets\Scenes\Scene3\Scripts\alphaChangeX.cs" />
      <Compile Include="Assets\Scenes\Scene3\Scripts\alphaChangeY.cs" />
      <Compile Include="Assets\Scenes\Scene3\Scripts\followPlayer.cs" />
