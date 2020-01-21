@@ -41,7 +41,7 @@ public class Maze : MonoBehaviour
         walls.name = "Maze";
         GameObject curWall;
 
-        Vector3 initPos = new Vector3((-width / 2.0f) + wallThickness / 2.0f, 0.0f, (-length / 2.0f) + wallThickness / 2.0f);
+        Vector3 initPos = new Vector3((-width / 2.0f) + wallThickness / 2.0f, 0.5f, (-length / 2.0f) + wallThickness / 2.0f);
         Vector3 curPos = initPos;
 
         int countwals = -1;
@@ -49,7 +49,7 @@ public class Maze : MonoBehaviour
         {
             for (int j = 0; j <= width; j++)
             {
-                curPos = new Vector3(initPos.x + (j * roomSize) - wallThickness / 2, 0, initPos.z + (i * roomSize) - wallThickness / 2);
+                curPos = new Vector3(initPos.x + (j * roomSize) - wallThickness / 2, 0.5f, initPos.z + (i * roomSize) - wallThickness / 2);
                 curWall = Instantiate(wall, curPos, Quaternion.identity) as GameObject;
                 curWall.name = (++countwals).ToString();
                 curWall.transform.parent = walls.transform;
@@ -60,7 +60,7 @@ public class Maze : MonoBehaviour
         {
             for (int j = 0; j < width; j++)
             {
-                curPos = new Vector3(initPos.x + (j * roomSize), 0, initPos.z + (i * roomSize) - wallThickness);
+                curPos = new Vector3(initPos.x + (j * roomSize), 0.5f, initPos.z + (i * roomSize) - wallThickness);
                 curWall = Instantiate(wall, curPos, Quaternion.Euler(0.0f, 90.0f, 0.0f)) as GameObject;
                 curWall.name = (++countwals).ToString();
                 curWall.transform.parent = walls.transform;

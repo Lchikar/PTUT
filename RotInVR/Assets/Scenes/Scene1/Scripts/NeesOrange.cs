@@ -23,7 +23,7 @@ public class NeesOrange : MonoBehaviour
     {
         cubes = new GameObject();
         cubes.name = "Cubes";
-        Vector3 initPos = new Vector3(0,0,0);
+        Vector3 initPos = new Vector3(0,0.5f,0);
         Vector3 currPos = initPos;
         GameObject currCube = new GameObject();
         int countCubes = -1;
