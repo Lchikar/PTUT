@@ -17,6 +17,8 @@ public class NeesOrange : MonoBehaviour
     void Start()
     {
         Generate();
+        cubes.transform.localScale = new Vector3(0.2f,0.2f,0.2f);
+        cubes.transform.Translate(0,0.5f,0);
     }
 
     private void Generate()

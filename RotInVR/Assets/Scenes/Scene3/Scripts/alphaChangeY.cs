@@ -19,7 +19,7 @@ public class alphaChangeY : MonoBehaviour {
     void Update() {
     	dist = Math.Sqrt(Math.Pow(player.position.z - transform.position.z, 2));
 		if(dist<4) {
-	    	alpha = (float) (0.75 - dist/5);
+	    	alpha = (float) (0.75 - dist*2/5);
     	}
     	else {
     		alpha = 0f;

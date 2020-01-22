@@ -30,13 +30,12 @@ public class Maze : MonoBehaviour
         GeneratePath();
         BreakWalls();
         ColorInnerWalls();
-        walls.transform.localScale += new Vector3(10, 10, 10);
     }
 
     private void CreateWalls()
     {
-        float roomSize = 1;
-        float wallThickness = 1;
+        float roomSize = 1.5f;
+        float wallThickness = 1.5f;
         walls = new GameObject();
         walls.name = "Maze";
         GameObject curWall;
