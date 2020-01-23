@@ -2,4 +2,3 @@ sceneSetups:
 - path: Assets/Scenes/Scene3/Infinity.unity
   isLoaded: 1
   isActive: 1
-  isSubScene: 0
