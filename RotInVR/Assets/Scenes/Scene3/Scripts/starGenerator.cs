@@ -16,6 +16,7 @@ public class starGenerator : MonoBehaviour {
     }
 
     float getRandom(float min, float max) {
+
         float rand = Random.Range(-max, max);
         if(-min < rand && rand < min) {
             if(rand > 0) {
@@ -30,7 +31,7 @@ public class starGenerator : MonoBehaviour {
 
     private void spawnStars() {
 
-        position = new Vector3(getRandom(10.0f, 200.0f), getRandom(10.0f, 200.0f), getRandom(10.0f, 200.0f));
+        position = new Vector3(getRandom(30.0f, 200.0f), getRandom(30.0f, 200.0f), getRandom(30.0f, 200.0f));
         //position = new Vector3(posX, posY, posZ);
         GameObject newStar = Instantiate(star, position, Quaternion.identity);
         /*starRenderer = GetComponent<meshRenderer>();
