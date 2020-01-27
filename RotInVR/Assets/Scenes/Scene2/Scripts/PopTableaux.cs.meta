@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 72498e0b139f63248812c70d48c40e8f
+timeCreated: 1579891300
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - tableauxMur1: {instanceID: 0}
+  - tableauxMur2: {instanceID: 0}
+  - tableauxMur3: {instanceID: 0}
+  - tableauxMur4: {instanceID: 0}
+  - oeuvre1: {fileID: 100000, guid: 8926e82687ede1149a87dcb080407067, type: 3}
+  - oeuvre2: {fileID: 100000, guid: d534ce72637da214497924e98be874f8, type: 3}
+  - oeuvre3: {fileID: 100000, guid: 9d70e12c6461d784c800b8ccaccc93b3, type: 3}
+  - oeuvre4: {fileID: 100000, guid: f4593a2fc5f3039459c16589c578aa1f, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
