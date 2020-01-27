@@ -22,7 +22,11 @@ public class Maze : MonoBehaviour
     private Cell[] cells;
 
     private List<int> path;
-
+    
+    public GameObject getWalls()
+    {
+        return walls;
+    }
     void Start()
     {
         CreateWalls();
@@ -30,6 +34,8 @@ public class Maze : MonoBehaviour
         GeneratePath();
         BreakWalls();
         ColorInnerWalls();
+        for(int i = 0; i < walls.transform.childCount; i++)
+            walls.transform.GetChild(i).Translate(0, 1, 0);
     }
 
     private void CreateWalls()
@@ -162,22 +168,22 @@ public class Maze : MonoBehaviour
             {
                 if ((i - cells[i].links[j]) == 1)
                 {
-                    Destroy(walls.transform.Find(cells[i].walls[0].ToString()).gameObject);
+                    DestroyImmediate(walls.transform.Find(cells[i].walls[0].ToString()).gameObject);
                 }
 
                 if ((i - cells[i].links[j]) == -1)
                 {
-                    Destroy(walls.transform.Find(cells[i].walls[1].ToString()).gameObject);
+                    DestroyImmediate(walls.transform.Find(cells[i].walls[1].ToString()).gameObject);
                 }
 
                 if ((i - cells[i].links[j]) == -width)
                 {
-                    Destroy(walls.transform.Find(cells[i].walls[3].ToString()).gameObject);
+                    DestroyImmediate(walls.transform.Find(cells[i].walls[3].ToString()).gameObject);
                 }
 
                 if ((i - cells[i].links[j]) == width)
                 {
-                    Destroy(walls.transform.Find(cells[i].walls[2].ToString()).gameObject);
+                    DestroyImmediate(walls.transform.Find(cells[i].walls[2].ToString()).gameObject);
                 }
             }
         }
@@ -185,14 +191,20 @@ public class Maze : MonoBehaviour
 
     private void ColorInnerWalls()
     {
-        for (int i = 0; i < walls.transform.childCount; i++)
+        for (int i = 0; i < 2 * length * width + 2 * width; i++)
         {
-            for (int k = 0; k < length; k++)
-                if (i == k * (width + 1) || i == k * (width + 1) + width)
-                    walls.transform.Find(i.ToString()).gameObject.GetComponent<Renderer>().material.color = Color.red;
-            for (int k = 0; k < width; k++)
-                if (i == length * (width + 1) + k || i == length * (width + 1) + k + length * width)
-                    walls.transform.Find(i.ToString()).gameObject.GetComponent<Renderer>().material.color = Color.red;
+            if(walls.transform.Find(i.ToString()) != null)
+            {
+                walls.transform.Find(i.ToString()).gameObject.GetComponent<Renderer>().material.color = Color.white;
+
+                for (int k = 0; k < length; k++)
+                    if (i == k * (width + 1) || i == k * (width + 1) + width)
+                        walls.transform.Find(i.ToString()).gameObject.GetComponent<Renderer>().material.color = Color.red;
+                for (int k = 0; k < width; k++)
+                    if (i == length * (width + 1) + k || i == length * (width + 1) + k + length * width)
+                        walls.transform.Find(i.ToString()).gameObject.GetComponent<Renderer>().material.color = Color.red;
+            }
+            
         }
     }
 
