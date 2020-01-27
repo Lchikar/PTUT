@@ -19,7 +19,7 @@ private GameObject[] mesOeuvres;
             if (i % 2 == 1)
             {
                 int o = Random.Range(0, mesOeuvres.Length - 1);
-                GameObject monOeuvre = (GameObject)Instantiate(mesOeuvres[o], new Vector3(-1.43f, i, 0), Quaternion.Euler(0, 0, 0));
+                GameObject monOeuvre = (GameObject)Instantiate(mesOeuvres[o], new Vector3(-1.38f, i, 0), Quaternion.Euler(0, 0, 0));
             }
 
         }
@@ -41,7 +41,7 @@ public void initMur3(){
             if (i % 2 == 1)
             {
                 int o = Random.Range(0, mesOeuvres.Length - 1);
-                GameObject monOeuvre = (GameObject)Instantiate(mesOeuvres[o], new Vector3(1.43f, i, 0), Quaternion.Euler(0, 180, 0));
+                GameObject monOeuvre = (GameObject)Instantiate(mesOeuvres[o], new Vector3(1.38f, i, 0), Quaternion.Euler(0, 180, 0));
             }
         }
     }
